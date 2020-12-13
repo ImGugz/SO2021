@@ -17,7 +17,7 @@ char inputCommands[MAX_COMMANDS][MAX_INPUT_SIZE];
 
 struct timeval begin, end;
 
-// THIS VERSION FIXED ERRORS THAT LOWERED OUR MARK
+// THIS VERSION FIXED ERRORS THAT HAD LOWERED OUR MARK
 
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_cond_t condProd = PTHREAD_COND_INITIALIZER, condCons = PTHREAD_COND_INITIALIZER;
@@ -134,6 +134,7 @@ void EOFProcess() {
     for (int i = 0; i < numberThreads; ++i) {
         insertCommand("x x x");
     }
+    /* Release threads that were waiting for commands on buffer */
     if (pthread_cond_broadcast(&condCons) != 0) {
         fprintf(stderr, "Error broadcasting consumer threads!\n");
         exit(EXIT_FAILURE);
