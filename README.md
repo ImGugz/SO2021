@@ -2,7 +2,7 @@
 ## Context
 3 project exercises assigned from SO (Operating Systems) in the first semester of 2020/2021 (IST).
 
-## Features
+## Goal
 Develop a user-level File System that keeps its contents in primary memory - TecnicoFS.
 
 ## Usage
