@@ -64,7 +64,9 @@ int print_tecnicofs_tree_aux(char* outputPath) {
     }
 
     int res = print_tecnicofs_tree(fp);
-    fclose(fp);
+    if (fclose(fp) != 0) {
+        
+    }
     return res;
 }
 

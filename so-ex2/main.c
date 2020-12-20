@@ -140,6 +140,19 @@ void EOFProcess() {
         exit(EXIT_FAILURE);
     }
 }
+/* Após ler todos os comandos do ficheiros, injeta numberthreads comandos de x para assinalar o fim da leitura.
+Quando o consumidor (múltiplas threads) ler um 'x' termina o applycommands (não esquecer que a thread
+principal é a única a correr o processinput))
+
+Porquê nthreads?
+Uma questão de assegurar que as threads consumidoras vão ler o comando.
+
+Broadcast para libertar as threads que ficaram na fila explícita do wait entre o início do pthread_create
+e a injetar os comandos iniciais */
+
+
+
+
 
 /**
  * Processes each line from file "fp" and adds it to inputCommands buffer.

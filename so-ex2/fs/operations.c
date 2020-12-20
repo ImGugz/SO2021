@@ -427,6 +427,10 @@ int move(char * oldPath, char * newPath, int * activeLocks, int * numActiveLocks
 
 }
 
+
+/* RELAÇÃO ALFABÉTICA: impor uma ordem de relação totoal para evitar interblocam, ou seja, seguir um
+padrão de conformidade para bloquear i-nodes */
+
 /*
  * Prints tecnicofs tree.
  * Input:
