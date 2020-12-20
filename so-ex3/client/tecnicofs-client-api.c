@@ -188,6 +188,8 @@ int tfsMount(char * sockPath) {
  * Closes the client socket.
  */
 int tfsUnmount() {
-  close(scsocket);
+  if (close(scsocket) == -1) {
+    perror("Client: Error closing client socket");
+  }
   return EXIT_SUCCESS;
 }
